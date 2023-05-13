@@ -1,10 +1,11 @@
 import { Button } from '@mui/material';
 import { useRouter } from 'next/router';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { useTranslation } from 'react-i18next';
 
 const BackButton = () => {
     const router = useRouter();
-
+    const { t } = useTranslation();
     return (
         <Button
         onClick={() => router.back()}
@@ -21,7 +22,7 @@ const BackButton = () => {
         }}
     >
         <ArrowBackIosIcon />
-        Назад
+        {t('Назад')}
     </Button>
     );
 };

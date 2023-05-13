@@ -6,9 +6,10 @@ import { observer } from 'mobx-react-lite';
 import DropdownSlider from './DropdownSlider';
 import DropdownSliderToRight from './DropdownSliderToRight';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const FilmsDropdown = observer(() => {
-
+    const { t } = useTranslation();
     return (
         <Box
             sx={{
@@ -33,7 +34,7 @@ const FilmsDropdown = observer(() => {
                     gap: "6vw"
                 }}>
                     <Box>
-                        <Typography sx={{ fontSize: "15px", fontWeight: "700", color: "white", marginBottom: "10px" }}>Жанры</Typography>
+                        <Typography sx={{ fontSize: "15px", fontWeight: "700", color: "white", marginBottom: "10px" }}>{t('Жанры')}</Typography>
                         <Stack direction={'row'} gap={"5vw"}>
                             <List disablePadding>
                                 {dropdown.genres.map((g, i, a) => {
@@ -43,7 +44,7 @@ const FilmsDropdown = observer(() => {
                                                 color: "rgba(255,255,255,.48)", fontSize: "12px", fontWeight: "700", ":hover": {
                                                     color: "white"
                                                 }
-                                            }}>{g}</Typography>
+                                            }}>{t(`${g}`)}</Typography>
                                         </ListItem>
                                 })}
                             </List>
@@ -55,7 +56,7 @@ const FilmsDropdown = observer(() => {
                                                 color: "rgba(255,255,255,.48)", fontSize: "12px", fontWeight: "700", ":hover": {
                                                     color: "white"
                                                 }
-                                            }}>{g}</Typography>
+                                            }}>{t(`${g}`)}</Typography>
                                         </ListItem>
                                 })}
                             </List>
@@ -63,7 +64,7 @@ const FilmsDropdown = observer(() => {
                     </Box>
                     <Box>
                         <Box>
-                            <Typography sx={{ fontSize: "15px", fontWeight: "700", color: "white", marginBottom: "10px" }}>Страны</Typography>
+                            <Typography sx={{ fontSize: "15px", fontWeight: "700", color: "white", marginBottom: "10px" }}>{t('Страны')}</Typography>
                             <List disablePadding>
                                 {dropdown.countries.map((c, i) => {
                                     return <ListItem key={i} disablePadding sx={{ marginBottom: "10px" }}>
@@ -71,13 +72,13 @@ const FilmsDropdown = observer(() => {
                                             color: "rgba(255,255,255,.48)", fontSize: "12px", fontWeight: "700", ":hover": {
                                                 color: "white"
                                             }
-                                        }}>{c}</Typography>
+                                        }}>{t(`${c}`)}</Typography>
                                     </ListItem>
                                 })}
                             </List>
                         </Box>
                         <Box>
-                            <Typography sx={{ fontSize: "15px", fontWeight: "700", color: "white", marginBottom: "10px", marginTop: "30px" }}>Годы</Typography>
+                            <Typography sx={{ fontSize: "15px", fontWeight: "700", color: "white", marginBottom: "10px", marginTop: "30px" }}>{t('Годы')}</Typography>
                             <List disablePadding>
                                 {dropdown.dates.map((d, i) => {
                                     return <ListItem key={i} disablePadding sx={{ marginBottom: "10px" }}>
@@ -110,7 +111,7 @@ const FilmsDropdown = observer(() => {
                                     color: "white",
                                     borderLeft: "2px solid white"
                                 }
-                            }} key={i}>{f}</Typography>
+                            }} key={i}>{t(`${f}`)}</Typography>
                         })}
                         <Link href="https://www.ivi.ru/pages/tvsmart/"> <Button
                             startIcon={<DesktopWindowsIcon />}
@@ -127,7 +128,7 @@ const FilmsDropdown = observer(() => {
                                 background: "#1f1b2e"
                             }}
                         >
-                            Смотреть на SmartTV
+                            {t('Смотреть на SmartTV')}
                         </Button>
                         </Link>
                     </Box>

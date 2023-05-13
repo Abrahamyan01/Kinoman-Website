@@ -18,17 +18,18 @@ import MyTooltip from "./content/MyTooltip";
 import MyTitle from "./content/myTitle";
 
 import FilmName from "./content/filmName";
+import { useTranslation } from "react-i18next";
 
 const FilmList = () => {
 
-    const url = 'http://localhost:3003/info';
-
+    const url = 'http://192.168.0.190:3003/info';
+    console.log('url',url);
     const films:any = useRequest(url);
-
+    const { t } = useTranslation();
     return(
         <Container maxWidth={false} sx={{ width: '1240px' }}>
             <Box sx={{  mt: '10rem', mb:'10rem' }}>
-                <MyTitle text="Все фильмы"/>
+                <MyTitle text={t("Все фильмы")}/>
 
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', mt:'1rem'}}>
                     {films?.rows.map((film:any)=>{

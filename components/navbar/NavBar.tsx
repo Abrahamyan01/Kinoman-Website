@@ -128,7 +128,7 @@ export const NavBar = observer(() => {
 
                     }}
                     onMouseOver={() => { dropdown.changeHandlerSubscribe(true) }}
-                    >Смотреть 30 дней бесплатно</Button></Link>
+                    >{t('Смотреть 30 дней бесплатно')}</Button></Link>
                 <Button
                     startIcon={<SearchIcon sx={{ color: "rgba(255,255,255,.48)" }} />}
                     sx={{

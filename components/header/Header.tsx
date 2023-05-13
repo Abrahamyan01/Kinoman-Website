@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import styles from "../../styles/Header.module.css"
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const slides: string[] = [
     "/slider/chicago.jpeg", "/slider/cosmos.jpeg", "/slider/crush.jpeg",
@@ -27,6 +28,7 @@ const slides: string[] = [
 
 
 export const Header = () => {
+    const { t } = useTranslation();
     return (
         <Box >
             <Swiper
@@ -86,7 +88,7 @@ export const Header = () => {
                                     }
                                 }}
                             >
-                                В Каталог
+                                {t('В Каталог')}
                             </Button>
                             </Link>
                         </Box>

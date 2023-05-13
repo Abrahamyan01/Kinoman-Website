@@ -2,8 +2,10 @@ import { Box, Button } from '@mui/material';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import React from 'react'
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 const Subscribe = () => {
+    const { t } = useTranslation();
     return (
         <Box sx={{
             maxWidth: "1176px",
@@ -24,7 +26,7 @@ const Subscribe = () => {
                         textTransform: "capitalize"
                     }}
                 >
-                    30 дней подписки бесплатно
+                    {t('30 дней подписки бесплатно')}
                 </Button >
             </Link>
         </Box>

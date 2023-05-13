@@ -3,11 +3,12 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Image from 'next/image'
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 
 const subscribe = () => {
-
+    const { t } = useTranslation();
     return (
         <>
             <Box sx={{
@@ -48,7 +49,7 @@ const subscribe = () => {
                             "@media (max-width:420px)": {
                                 fontSize: "20px",
                             }
-                        }}>Кино<span style={{ color: "#00b0ff" }}>Ман</span></Typography></Link>
+                        }}>{t('Кино')}<span style={{ color: "#00b0ff" }}>Ман</span></Typography></Link>
                     </Box>
                     <Button
                         startIcon={<ArrowBackIosNewIcon sx={{ color: "white", }} />}
@@ -64,7 +65,7 @@ const subscribe = () => {
                                 transition: "all .5s ease-in-out"
                             }
                         }}>
-                            Назад
+                            {t('Назад')}
                         </Typography>
                         </Link>
                     </Button>
@@ -95,7 +96,7 @@ const subscribe = () => {
                             fontSize: "60px",
                             fontWeight: "800"
                         }}
-                    >Подписка КиноМан</Typography>
+                    >{t('Подписка')} КиноМан</Typography>
                     <Typography
                         sx={{
                             color: "white",
@@ -103,8 +104,8 @@ const subscribe = () => {
                             fontWeight: "600",
                             marginTop: "10px"
                         }}
-                    >Подключай и смотри новые фильмы и сериалы <br />
-                        со всего мира в отличном качестве и без рекламы</Typography>
+                    >{t('Подключай и смотри новые фильмы и сериалы')} <br />
+                        {t('со всего мира в отличном качестве и без рекламы')}</Typography>
                     <Box sx={{
                         display: "flex",
                         flexDirection: "column",
@@ -125,14 +126,14 @@ const subscribe = () => {
                                 fontWeight: "600"
                             }}
                         >
-                            Попробовать 30 дней бесплатно
+                            {t('Попробовать 30 дней бесплатно')}
                         </Button>
                         <Typography
                             sx={{
                                 color: "rgba(255,255,255,.48)",
                                 fontSize: "15px",
                             }}
-                        >Отменить можно в любой момент</Typography>
+                        >{t('Отменить можно в любой момент')}</Typography>
                         <IconButton>
                             <ExpandMoreIcon sx={{ color: "white", fontSize: "50px" }} />
                         </IconButton>
@@ -158,15 +159,15 @@ const subscribe = () => {
                             fontSize: "28px",
                             fontWeight: "600",
                             lineHeight: "32px"
-                        }}>Одна подписка для всей <br />
-                            семьи или друзей</Typography>
+                        }}>{t('Одна подписка для всей')} <br />
+                            {t('семьи или друзей')}</Typography>
                         <Typography sx={{
                             fontSize: "14px",
                             color: "rgba(255,255,255,.48)",
                             marginTop: "20px"
-                        }}>Создайте персональное пространство для каждого<br />
-                            и подключите до пяти устройств. И всё это в одной<br />
-                            подписке.</Typography>
+                        }}>{t('Создайте персональное пространство для каждого')}<br />
+                            {t('и подключите до пяти устройств. И всё это в одной')}<br />
+                            {t('подписке')}.</Typography>
                     </Box>
                     <Image
                         src="/subscribe/mobile.png"
@@ -196,14 +197,14 @@ const subscribe = () => {
                             fontSize: "28px",
                             fontWeight: "600",
                             lineHeight: "32px"
-                        }}>Максимальное качество</Typography>
+                        }}>{t('Максимальное качество')}</Typography>
                         <Typography sx={{
                             fontSize: "14px",
                             color: "rgba(255,255,255,.48)",
                             marginTop: "20px"
-                        }}>Проще простого: у нас больше всего фильмов в 4K и своя<br />
-                            система, которая обеспечивает быструю загрузку<br />
-                            и просмотр без сбоев.</Typography>
+                        }}>{t('Проще простого: у нас больше всего фильмов в 4K и своя')}<br />
+                            {t('система, которая обеспечивает быструю загрузку')}<br />
+                            {t('и просмотр без сбоев')}.</Typography>
                     </Box>
                 </Box>
                 <Box sx={{
@@ -218,13 +219,13 @@ const subscribe = () => {
                             fontSize: "28px",
                             fontWeight: "600",
                             lineHeight: "32px"
-                        }}>Скачать на смартфон</Typography>
+                        }}>{t('Скачать на смартфон')}</Typography>
                         <Typography sx={{
                             fontSize: "14px",
                             color: "rgba(255,255,255,.48)",
                             marginTop: "20px"
-                        }}>Возьмите кино в дорогу. Загружайте на смартфон или<br />
-                            планшет и смотрите без интернета.
+                        }}>{t('Возьмите кино в дорогу. Загружайте на смартфон или')}<br />
+                            {t('планшет и смотрите без интернета')}.
                         </Typography>
                     </Box>
                     <Image
@@ -255,14 +256,14 @@ const subscribe = () => {
                             fontSize: "28px",
                             fontWeight: "600",
                             lineHeight: "32px"
-                        }}>Без рекламы</Typography>
+                        }}>{t('Без рекламы')}</Typography>
                         <Typography sx={{
                             fontSize: "14px",
                             color: "rgba(255,255,255,.48)",
                             marginTop: "20px"
-                        }}>Цените каждый момент. Ни один рекламный ролик<br />
-                            не прервёт ваш просмотр кино. Отсутствие рекламы<br />
-                            не распространяется на ТВ-каналы.</Typography>
+                        }}>{t('Цените каждый момент. Ни один рекламный ролик')}<br />
+                            {t('не прервёт ваш просмотр кино. Отсутствие рекламы')}<br />
+                            {t('не распространяется на ТВ-каналы')}.</Typography>
                     </Box>
                 </Box>
                 <Box sx={{
@@ -276,9 +277,9 @@ const subscribe = () => {
                         fontSize: "28px",
                         fontWeight: "600",
                         lineHeight: "32px"
-                    }}>Каждый день<br />
-                        вы легко найдёте,<br />
-                        что посмотреть</Typography>
+                    }}>{t('Каждый день')}<br />
+                        {t('вы легко найдёте')},<br />
+                        {t('что посмотреть')}</Typography>
                     <Image
                         src="/subscribe/other.png"
                         alt="Logo"
@@ -288,10 +289,10 @@ const subscribe = () => {
                     />
                 </Box>
                 <Stack direction={"row"} gap={"30px"} alignItems={"center"}>
-                    <Link href="https://www.ivi.ru/subscribe?from=top_menu&redirect_url=%2Fprofile" style={{ color: "white", textDecoration: "underline", fontSize: "14px" }}>Есть сертификат или промокод</Link>
-                    <Link href="https://www.ivi.ru/subscribe?from=top_menu&redirect_url=%2Fprofile" style={{ color: "white", textDecoration: "underline", fontSize: "14px" }}>Уже есть подписка</Link>
+                    <Link href="https://www.ivi.ru/subscribe?from=top_menu&redirect_url=%2Fprofile" style={{ color: "white", textDecoration: "underline", fontSize: "14px" }}>{t('Есть сертификат или промокод')}</Link>
+                    <Link href="https://www.ivi.ru/subscribe?from=top_menu&redirect_url=%2Fprofile" style={{ color: "white", textDecoration: "underline", fontSize: "14px" }}>{t('Уже есть подписка')}</Link>
                 </Stack>
-                <Typography sx={{ color: "gray", fontSize: "12px" }}>16+ © АО «Телекомпания НТВ», 2021 г.; 12+© Централ Партнершип, 2022 г.; 18+© ООО «Иви.ру», 2022 год. Все права защищены</Typography>
+                <Typography sx={{ color: "gray", fontSize: "12px" }}>16+ © {t('АО «Телекомпания НТВ»')}, 2021 г.; 12+© {t('Централ Партнершип')}, 2022 г.; 18+© ООО «{t('Иви.ру')}», 2022 {t('год')}. {t('Все права защищены')}</Typography>
             </Container >
 
         </>

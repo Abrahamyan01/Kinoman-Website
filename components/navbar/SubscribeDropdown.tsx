@@ -10,8 +10,10 @@ import DropdownSliderToRight from './DropdownSliderToRight';
 import Link from 'next/link';
 import dropdown from '@/store/Dropdown';
 import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 
 const SubscribeDropdown = observer(() => {
+    const { t } = useTranslation();
     return (
         <Box sx={{
             position: "absolute",
@@ -34,11 +36,11 @@ const SubscribeDropdown = observer(() => {
                     fontSize: "32px",
                     color: "white",
                     fontWeight: "700"
-                }}>Подписка КиноМан</Typography>
+                }}>{t('Подписка')} КиноМан</Typography>
                 <Typography sx={{
                     fontSize: "16px",
                     color: "rgba(255,255,255,.48)"
-                }}>Стоимость 2.99 $ в месяц, продление автоматическое</Typography>
+                }}>{t('Стоимость 2.99 $ в месяц, продление автоматическое')}</Typography>
                 <Box sx={{
                     display: "flex",
                     flexDirection: "column",
@@ -63,8 +65,8 @@ const SubscribeDropdown = observer(() => {
                                 fontSize: "18px",
                                 color: "white",
                                 fontWeight: "700"
-                            }}>Новинки сериалов<br />
-                                и фильмов</Typography>
+                            }}>{t('Новинки сериалов')}<br />
+                                {t('и фильмов')}</Typography>
                         </Box>
                         <Box
                             sx={{
@@ -83,8 +85,8 @@ const SubscribeDropdown = observer(() => {
                                 fontSize: "18px",
                                 color: "white",
                                 fontWeight: "700"
-                            }}>Еженедельное пополнение каталога<br />
-                                фильмами и сериалами со всего мира</Typography>
+                            }}>{t('Еженедельное пополнение каталога')}<br />
+                                {t('фильмами и сериалами со всего мира')}</Typography>
                         </Box>
                     </Stack>
                     <Stack direction={"row"} alignItems={"center"} gap={"20px"}>
@@ -105,8 +107,8 @@ const SubscribeDropdown = observer(() => {
                                 fontSize: "18px",
                                 color: "white",
                                 fontWeight: "700"
-                            }}>Фильмы и сериалы<br />
-                                без рекламы</Typography>
+                            }}>{t('Фильмы и сериалы')}<br />
+                                {t('без рекламы')}</Typography>
                         </Box>
                         <Box
                             sx={{
@@ -125,8 +127,8 @@ const SubscribeDropdown = observer(() => {
                                 fontSize: "18px",
                                 color: "white",
                                 fontWeight: "700"
-                            }}>Семейный аккаунт<br />
-                                на 5 устройствах</Typography>
+                            }}>{t('Семейный аккаунт')}<br />
+                                {t('на 5 устройствах')}</Typography>
                         </Box>
                         <Box
                             sx={{
@@ -145,9 +147,9 @@ const SubscribeDropdown = observer(() => {
                                 fontSize: "18px",
                                 color: "white",
                                 fontWeight: "700"
-                            }}>Загрузка на<br />
-                                мобильные<br />
-                                устройства</Typography>
+                            }}>{t('Загрузка на')}<br />
+                                {t('мобильные')}<br />
+                                {t('устройства')}</Typography>
                         </Box>
                     </Stack>
                 </Box>
@@ -168,14 +170,14 @@ const SubscribeDropdown = observer(() => {
                             fontWeight: "600"
                         }}
                     >
-                        Попробовать 30 дней бесплатно
+                        {t('Попробовать 30 дней бесплатно')}
                     </Button>
                     </Link>
                     <Typography sx={{
                         fontSize: "12px",
                         color: "rgba(255,255,255,.48)"
-                    }}>Отключить можно<br />
-                        в любой момент</Typography>
+                    }}>{t('Отключить можно')}<br />
+                        {t('в любой момент')}</Typography>
                 </Box>
             </Box>
             <Box sx={{ position: "relative" }}>
@@ -185,7 +187,7 @@ const SubscribeDropdown = observer(() => {
                     textDecoration: "underline", color: "rgba(255,255,255,.48)",
                     position: "absolute", bottom: "20px", right: "0"
                 }}
-                    href="https://www.ivi.ru/profile/subscriptions">Другие подписки</Link>
+                    href="https://www.ivi.ru/profile/subscriptions">{t('Другие подписки')}</Link>
             </Box>
         </Box>
     )

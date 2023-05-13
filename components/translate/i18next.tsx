@@ -12,7 +12,7 @@ i18n
     .init({
         supportedLngs:['ru', 'en'],
         fallbackLng: "ru",
-        debug: true,
+        debug: false,
         detection: {
             order: ['cookie', 'localStorage'],
             caches: ['cookie', 'localStorage'],
