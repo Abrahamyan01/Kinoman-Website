@@ -22,7 +22,7 @@ import { useTranslation } from "react-i18next";
 
 const FilmList = () => {
 
-    const url = 'http://192.168.0.190:3003/info';
+    const url = 'http://localhost:3003/info';
     console.log('url',url);
     const films:any = useRequest(url);
     const { t } = useTranslation();
