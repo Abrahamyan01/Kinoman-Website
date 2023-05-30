@@ -15,14 +15,14 @@ type Story = StoryObj<typeof MyLink>;
 
 export const Primary: Story = {
     args: {
-        text:'Ссылка',
+        content:'Ссылка',
         link:'https://www.ivi.tv/'
     },
 };
 
 export const Gradiented: Story = {
     args: {
-        text:'Ссылка с градиентом',
+        content:'Ссылка с градиентом',
         link:'https://www.ivi.tv/',
         gradient:true
     },
@@ -30,7 +30,7 @@ export const Gradiented: Story = {
 
 export const Bigger: Story = {
     args: {
-        text:'Мы всегда готовы вам помочь. Наши операторы онлайн 24/7',
+        content:'Мы всегда готовы вам помочь. Наши операторы онлайн 24/7',
         link:'https://www.ivi.tv/',
         fontSize:'18px',
         fontWeight:600,

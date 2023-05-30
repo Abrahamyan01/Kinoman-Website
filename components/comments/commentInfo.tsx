@@ -8,13 +8,10 @@ interface CommentInfoProps{
     name:string;
     time:string;
     id:number;
-    showChildComments:boolean;
+    showChildComments?:boolean;
 }
 
-const CommentInfo = ({name,time,id, showChildComments}:CommentInfoProps) => {
-
-    //id нужен для того, чтобы сделать ссылку
-
+const CommentInfo = ({name,time,showChildComments}:CommentInfoProps) => {
 
     return(
         <Box

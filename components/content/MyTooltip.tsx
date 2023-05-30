@@ -1,7 +1,11 @@
 import { Tooltip } from '@mui/material';
 
+interface MyTooltipProps{
+    content: React.ReactElement;
+    text: string;
+}
 
-const MyTooltip = ({content, text}:any) => {
+const MyTooltip = ({content, text}:MyTooltipProps) => {
 
 
     return(

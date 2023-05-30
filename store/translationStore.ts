@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import Cookies from 'js-cookie';
 
-class TranslationStore {
+export class TranslationStore {
   translation = "ru";
 
 

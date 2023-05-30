@@ -1,100 +1,155 @@
-import { Box, Button } from '@mui/material'
-import WidgetsIcon from '@mui/icons-material/Widgets';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import React from 'react'
-import Image from 'next/image';
-import { Autoplay, EffectCoverflow, Navigation, A11y } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import styles from "../../styles/Header.module.css"
-import Link from 'next/link';
-
-const slides: string[] = [
-    "/slider/chicago.jpeg", "/slider/cosmos.jpeg", "/slider/crush.jpeg",
-    "/slider/eskort.jpeg", "/slider/false.jpeg", "/slider/family.jpeg",
-    "/slider/fortuna.jpeg", "/slider/hello.jpeg", "/slider/human.jpeg",
-    "/slider/kills.jpeg", "/slider/listen.jpeg", "/slider/marlou.jpeg",
-    "/slider/minute.jpeg", "/slider/money.jpeg", "/slider/moris.jpeg",
-    "/slider/nevskiy.jpeg", "/slider/nolimit.jpeg", "/slider/norton.jpeg",
-    "/slider/prince.jpeg", "/slider/sabyanin.jpeg", "/slider/shpion.jpeg",
-    "/slider/sleeptalk.jpeg", "/slider/snowrod.jpeg", "/slider/three.jpeg",
-    "/slider/universe.jpeg", "/slider/voin.jpeg", "/slider/withall.jpeg"
-]
+import { Box, Button, IconButton, List, ListItem, Stack, Container } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import { observer } from 'mobx-react-lite';
+import logo from '../../public/logo/reposition_iviLogoPlateRounded.svg'
+import { useTranslation } from 'react-i18next';
+import '../translate/i18next';
+import MyLink from '../navigation/myLink';
+import MyButton from '../buttons/myButton';
+import DropDownsList from './dropDownsList';
+import { dropdownStore } from '@/store/DropdownStore';
 
 
-export const Header = () => {
+const Header = observer(() => {
+    const { t } = useTranslation();
+
     return (
-        <Box >
-            <Swiper
-                className={styles.swiper}
-                modules={[Autoplay, EffectCoverflow, Navigation, A11y]}
-                spaceBetween={80}
-                initialSlide={2}
-                centeredSlides={true}
-                loop={true}
-                autoplay={{ delay: 5000, disableOnInteraction: false }}
-                effect="coverflow"
-                coverflowEffect={{
-                    rotate: 15,
-                    scale: 1,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 3,
-                    slideShadows: true
-                }}
-                slidesPerView={1}
-                navigation={true}              
-            >
-                {slides.map((slide, i) => {
-                    return <SwiperSlide key={i}>
-                        <Box
-                            className={styles.container}
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                position: "relative"
-                            }}>
-                            <Image
-                                src={slide}
-                                alt='Slider'
-                                width={1216}
-                                height={370}
-                                className={styles.image}
-                                style={{
-                                    borderRadius: "20px",
-                                }}
-                            />
-                            <Link href='/films' style={{ color: "white" }}> <Button
-                                variant='contained'
-                                endIcon={<WidgetsIcon />}
-                                sx={{
-                                    position: "absolute",
-                                    width: "200px",
-                                    height: "40px",
-                                    background: "#00b0ff",
-                                    borderRadius: "10px",
-                                    color: "white",
-                                    bottom: "20px",
-                                    left: "100px",
-                                    "@media (max-width:786px)": {
-                                        display: "none"
-                                    }
-                                }}
-                            >
-                                В Каталог
-                            </Button>
-                            </Link>
-                        </Box>
-                    </SwiperSlide>
-                })}               
-            </Swiper>
-        </Box >
+        <Container maxWidth={false} sx={{ width: '77.5rem', mb:'1rem' }}>
+      
+        <Box
+            component="header" 
+            sx={{        
+            pt:'1rem',
+            position:'relative',
+            width:'100%',
+            zIndex:3,
+            "@media (max-width:1200px)": {
+                justifyContent: "space-between",
+                marginLeft: "40px",
+                marginRight: "60px"
+            },
+            "@media (max-width:600px)": {
+                justifyContent: "space-between",
+                marginLeft: "10px",
+                marginRight: "30px"
+            }
+        }}>
+            <Box sx={{
+                zIndex:3, 
+                width:'100%',
+                top:0, 
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                position:'relative'
+            }}>
+
+           
+            <Stack direction={"row"} alignItems={"center"} justifyContent={"center"} gap={"1vw"}>
+                <Box sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    position: "relative",
+                }}>
+                    <MyLink link={'/'} content={logo()}/>
+                </Box>
+                <List
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginLeft: "1.6rem",
+                        "& .css-1p823my-MuiListItem-root": {
+                            width: "auto",
+                            padding: "8px 8px",
+                            cursor: "pointer",
+                        },
+                        "@media (max-width:1200px)": {
+                            display: "none"
+                        }
+                    }}>
+                    <ListItem  onMouseOver={() => { dropdownStore.setShowDropdown('movies', true)}}> 
+                        <MyLink link={'/movies/all'} fontWeight={700} content={t('Что нового')}/>   
+                    </ListItem>
+                    <ListItem onMouseOver={() => { dropdownStore.setShowDropdown('movies', true)}}>
+                        <MyLink link={'/movies/all'} fontWeight={700} content={t('Фильмы')}/>   
+                    </ListItem>
+                    <ListItem onMouseOver={() => { dropdownStore.setShowDropdown('movies', true)}}>
+                        <MyLink link={'/movies/all'} fontWeight={700} content={t('Сериалы')}/>   
+                    </ListItem>
+                    <ListItem>
+                        <MyLink link={'/movies/all'} fontWeight={700} content={t('Мультфильмы')}/> 
+                    </ListItem>
+                </List>
+            </Stack>
+            <Stack direction={"row"} alignItems={"center"} justifyContent={"center"}  gap={"1vw"}>
+                <Box  
+                   onMouseOver={() => { dropdownStore.setShowDropdown('subscribe', true)}}>
+                    <MyLink 
+                        link='/subscribe'
+                        content={
+                        <MyButton text={'Смотреть 30 дней бесплатно'} width={'13.3rem'} size={'0.83rem'} color={'#ea003d'}/>
+                            }
+                    />
+                </Box>
+                <Button
+                    startIcon={<SearchIcon sx={{ color: "rgba(255,255,255,.48)" }} />}
+                    sx={{
+                        color: "rgba(255,255,255,.48)",
+                        fontSize: "15px",
+                        fontWeight: "700",
+                        textTransform: "capitalize",
+                        width: "90px",
+                        height: "40px",
+                        "@media (max-width:1200px)": {
+                            display: "none"
+                        }
+                    }}
+                    >{t('Поиск')}</Button>
+                <IconButton
+                    sx={{
+                        width: "40px",
+                        height: "40px",
+                        "@media (max-width:600px)": {
+                            display: "none"
+                        }
+                    }}
+                >
+                    <NotificationsIcon
+                        onMouseOver={() => { dropdownStore.setShowDropdown('alert', true)}}
+                        sx={{ color: "rgba(255,255,255,.48)" }}
+                    />
+                </IconButton>
+                <Button
+                    onMouseOver={() => { dropdownStore.setShowDropdown('profile', true)}}
+                    variant="outlined"
+                    sx={{
+                        width: "48px",
+                        height: "48px",
+                        border: "1.5px solid rgba(255,255,255,.48)",
+                        borderRadius: "10px",
+                        ":hover": {
+                            border: "1.5px solid white",
+                        },
+                        "@media (max-width:600px)": {
+                            display: "none"
+                        }
+                    }}
+                >
+                        <PersonOutlineIcon sx={{ color: "rgba(255,255,255,.48)" }} />
+                </Button>
+
+                
+            </Stack>
+            </Box>                
+            <DropDownsList/>
+        </Box>  
+
+            </Container>
     )
-}
+})
 
 
+export default Header;

@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import { modalStore } from "@/store/modalStore";
+import { modalStore } from "../../store/modalStore";
 
 interface MyTitleProps {
   isButton?: boolean;
@@ -8,9 +8,10 @@ interface MyTitleProps {
   text: string;
   size?: string;
   lineHeight?:string;
+  fontWeight?:number;
 }
 
-const MyTitle = ({ isButton, text, onClick, showRedBorder, size = '24px', lineHeight=size}: MyTitleProps) => {
+const MyTitle = ({ isButton, text, onClick, showRedBorder, size = '1.5rem', lineHeight=size, fontWeight = 700}: MyTitleProps) => {
 
   const isSelected = modalStore.content === text;
   
@@ -18,7 +19,7 @@ const MyTitle = ({ isButton, text, onClick, showRedBorder, size = '24px', lineHe
     position: 'relative',
     fontSize: size,
     lineHeight,
-    fontWeight: 700,
+    fontWeight,
     fontStyle: "normal",
     color: "#fff",
 

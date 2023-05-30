@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { Box } from "@mui/material";
 
-const CommentsLine = ({content, onClick}:any) => {
+interface CommentLineProps {
+    content: string;
+    onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  }
+
+const CommentsLine = ({content, onClick}:CommentLineProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
 
-    const makeWhiteColor = (e:any) => {
+    const makeWhiteColor = (e:React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
         setIsHovered(true);
     }
-    const removeWhiteColor = (e:any) => {
+    const removeWhiteColor = (e:React.MouseEvent<HTMLDivElement>) => {
         e.stopPropagation();
         setIsHovered(false);
     }

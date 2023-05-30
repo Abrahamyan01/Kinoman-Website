@@ -1,6 +1,6 @@
 import Footer from "../footer/footer";
-import MobileNavBar from "../navbar/MobileNavBar";
-import { NavBar } from "../navbar/NavBar";
+import MobileNavBar from "../navigation/MobileNavBar";
+import Header from "../header/Header";
 import { ReactNode } from 'react'
 
 interface LayoutProps{
@@ -11,7 +11,7 @@ interface LayoutProps{
 export default function Layout({ children, className }:LayoutProps) {
     return (
         <>
-            <NavBar />
+            <Header/>
             <MobileNavBar />
             <main>{children}</main>
             <Footer/>

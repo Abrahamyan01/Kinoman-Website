@@ -14,7 +14,7 @@ const slides: string[] = [
     "/slider/sleeptalk.jpeg", "/slider/snowrod.jpeg", "/slider/three.jpeg",
     "/slider/universe.jpeg", "/slider/voin.jpeg", "/slider/withall.jpeg"
 ]
-const DropdownSlider = () => {
+const DropdownSliderToRight = () => {
     return (
         <Box className={styles.slider}>
             <Box className={styles.track}>
@@ -34,4 +34,4 @@ const DropdownSlider = () => {
         </Box>
     )
 }
-export default DropdownSlider;
+export default DropdownSliderToRight;

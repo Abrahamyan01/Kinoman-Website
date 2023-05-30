@@ -1,3 +1,5 @@
-export const getTopLevelcomments = (comments:any) => {
-    return comments.filter((c:any) => c.repliedOnComment === null);
-}
+import { Comment } from "@/components/interfaces/comment";
+
+export const getTopLevelcomments = (comments: Comment[]) => {
+  return comments?.filter((c) => c.repliedOnComment === null);
+};

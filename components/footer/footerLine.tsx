@@ -23,16 +23,16 @@ const FooterLine = () => {
             <Grid item>
                 <Box display="flex">
                     <Box sx={{ margin: 1 }}>
-                        <MyButton text={'App Store'} smallText={`${t('Загрузить в')}`} color='#1f1b2e' hoverColor='#3e3659' icon={<AppleIcon />} />
+                        <MyButton text={'App Store'} smallText={`${t('Загрузить в')}`} color='#1f1b2e' hoverColor='#3e3659' icon={<AppleIcon />} width={'9.5rem'}/>
                     </Box>
                     <Box sx={{ margin: 1 }}>
-                        <MyButton text={'Google Play'} smallText={`${t('Доступно в')}`} color='#1f1b2e' hoverColor='#3e3659' icon={<GoogleIcon />} />
+                        <MyButton text={'Google Play'} smallText={`${t('Доступно в')}`} color='#1f1b2e' hoverColor='#3e3659' icon={<GoogleIcon />} width={'9.5rem'}/>
                     </Box>
                     <Box sx={{ margin: 1 }}>
-                        <MyButton text={'Smart TV'} smallText={`${t('Смотрите на')}`} color='#1f1b2e' hoverColor='#3e3659' icon={<HomeMaxIcon />} />
+                        <MyButton text={'Smart TV'} smallText={`${t('Смотрите на')}`} color='#1f1b2e' hoverColor='#3e3659' icon={<HomeMaxIcon />} width={'9.5rem'}/>
                     </Box>
                     <Box sx={{ margin: 1 }}>
-                        <MyButton text={t('Все устройства')} color='#1f1b2e' hoverColor='#3e3659' icon={<DevicesIcon />} />
+                        <MyButton text={t('Все устройства')} color='#1f1b2e' hoverColor='#3e3659' icon={<DevicesIcon />} width={'11rem'}/>
                     </Box>
                 </Box>
             </Grid>

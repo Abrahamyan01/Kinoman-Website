@@ -1,14 +1,21 @@
 import Head from 'next/head';
-import { Header } from '@/components/header/Header';
-import Footer from '@/components/footer/footer';
 import React, {Suspense} from 'react'
-import { useTranslation } from 'react-i18next'
+import { Container } from '@mui/material';
 import '../components/translate/i18next'
-import FilmList from '@/components/filmList';
+import MoviesList from '@/components/moviesList';
 import Subscribe from '@/components/header/Subscribe'
-import DropdownSlider from '@/components/navbar/DropdownSlider'
+import useRequest from '@/hooks/useRequest';
+import Hero from '@/components/hero';
+import { Movies } from '@/components/interfaces/movie';
 
 export default function Home() {
+
+  const url = 'http://localhost:3003/info?genres=4&limit=15';
+  const urlCom = 'http://localhost:3003/info?genres=8&limit=15';
+
+  const movies:Movies = useRequest(url);
+  const moviesCom:Movies = useRequest(urlCom);
+
   return (
     <>
       <Head>
@@ -19,11 +26,15 @@ export default function Home() {
       </Head>
       <Suspense fallback={<div>Loading...</div>}>
       <main>
-        <Header />
+        <Hero />
+        <Container maxWidth={false} sx={{ width: '77.5rem', mb:'1rem' }}>
+          <Subscribe /> 
+          <MoviesList movies = {movies} title={'Драмы'} />
+          <MoviesList movies = {moviesCom} title={'Комедии'} />
 
+        </Container>
 
-        <FilmList/>
-        <Subscribe />        
+              
       </main>
       </Suspense>
     </>

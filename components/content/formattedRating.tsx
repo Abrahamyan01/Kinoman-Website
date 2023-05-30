@@ -2,21 +2,25 @@ import React from 'react';
 import { Typography } from '@mui/material';
 
 interface FormattedRatingProps {
-  rating: number;
+  rating: number | undefined;
   smallDecimal?: boolean;
   color?: string;
 }
 
 const FormattedRating = ({ rating, smallDecimal, color = "#000"}: FormattedRatingProps) => {
-  let [whole, decimal] = rating.toString().split('.');
+  if (rating === undefined) {
+    return null;
+  }
+
+  let [whole, decimal] = rating.toString().split(".");
   return (
-    <Typography sx={{color}}>
+    <Typography sx={{ color, fontSize:'1.5rem' }}>
       {whole}
       {decimal && (
         <>
           ,
           {smallDecimal ? (
-            <span style={{ fontSize: '0.75em'  }}>{decimal}</span>
+            <span style={{ fontSize: "0.75em" }}>{decimal}</span>
           ) : (
             decimal
           )}

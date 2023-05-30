@@ -95,7 +95,7 @@ const subscribe = () => {
                             fontSize: "60px",
                             fontWeight: "800"
                         }}
-                    >Подписка КиноМан</Typography>
+                    >Подписка иви</Typography>
                     <Typography
                         sx={{
                             color: "white",

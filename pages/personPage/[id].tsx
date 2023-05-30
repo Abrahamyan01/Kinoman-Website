@@ -4,14 +4,14 @@ import useRequest from "@/hooks/useRequest";
 import { Box, Container, Stack } from "@mui/material";
 import { useRouter } from "next/router";
 import MyText from "@/components/content/myText";
-import Hr from "@/components/hr";
-import FilmName from "@/components/content/filmName";
+import Hr from "@/components/content/hr";
+import movieName from "@/components/content/translationDynamicData";
 import FormattedRating from "@/components/content/formattedRating";
 import MyButton from "@/components/buttons/myButton";
 import BackButton from "@/components/navigation/backButton";
 import Link from "next/link";
 
-const FilmCard = () => {
+const movieCard = () => {
 
     const router = useRouter()
     const { id } = router.query;
@@ -57,7 +57,7 @@ const FilmCard = () => {
                                         style={{display:'flex', marginTop:'1rem', marginBottom:'1rem', alignItems:'center'}}
                                         key={movie.id}
                                         href={{
-                                        pathname: `/filmPage/${movie.id}`,
+                                        pathname: `/moviePage/${movie.id}`,
                                         query: {
                                             id: movie.id,
                                     },
@@ -71,7 +71,7 @@ const FilmCard = () => {
                                     ></Image>
                                     <Box flexGrow={1} sx={{pl:'1rem'}}>
                                         <MyText text={movie.year} align={'left'} color={"#fff"} weight={500}/>
-                                        <FilmName nameRu={movie.nameRu} nameEn={movie.nameEn} align={'left'} color={'#fff'} weight={500}/>
+                                        <movieName nameRu={movie.nameRu} nameEn={movie.nameEn} align={'left'} color={'#fff'} weight={500}/>
                                         <Stack direction='row' alignItems={'center'} gap={1}>
                                             <MyText text='Рейтинг Иви:' color="#a5a1b2"/>
                                             <FormattedRating rating={movie.ratingKinopoisk} color={'#a5a1b2'}/>
@@ -91,4 +91,4 @@ const FilmCard = () => {
     
 }
 
-export default FilmCard;
+export default movieCard;

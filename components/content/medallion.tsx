@@ -4,8 +4,8 @@ import FormattedRating from "./formattedRating";
 
 
 interface MedallionProps{
-    image?:any;
-    rating?:any;
+    image?:string;
+    rating?:number | undefined;
 }
 
 const Medallion = ({image, rating}:MedallionProps) => {
@@ -13,13 +13,17 @@ const Medallion = ({image, rating}:MedallionProps) => {
 
   let backgroundColor;
 
-  if (rating > 7) {
-    backgroundColor = 'green';
-  } else if (rating > 5) {
-    backgroundColor = 'grey';
-  } else {
-    backgroundColor = 'red';
+  if(rating){
+    if (rating > 7) {
+      backgroundColor = 'green';
+    } else if (rating > 5) {
+      backgroundColor = 'grey';
+    } else {
+      backgroundColor = 'red';
+    }
   }
+
+  
 
     const Content = () => {
         if(image){
